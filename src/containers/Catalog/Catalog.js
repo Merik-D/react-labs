@@ -1,6 +1,6 @@
 import React from "react";
 
-const Songs = () => {
+const Catalog = () => {
     return (
         <div>
             Songs
@@ -8,4 +8,4 @@ const Songs = () => {
     )
 }
 
-export default Songs
+export default Catalog
