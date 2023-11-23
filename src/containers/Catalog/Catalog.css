@@ -1,0 +1,10 @@
+.songs {
+  margin: 0 auto;
+  margin-left: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}

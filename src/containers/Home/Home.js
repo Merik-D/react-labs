@@ -1,15 +1,29 @@
 import React from "react";
 import "./Home.css";
 import Article from "../../components/SongTemplate/SongTemplate";
-import Button from "../../components/Button/Button";
 import img from "../../Icons/image.png";
+import { getAllSongs } from "../../services/song_api";
+import { useState, useEffect } from "react";
 
 const Home = () => {
+  const [songs, setSongs] = useState([]);
+  const [displayedSongs, setDisplayedSongs] = useState(3);
+
+  useEffect(() => {
+    getAllSongs().then((data) => {
+      setSongs(data.songs);
+    });
+  }, []);
+
+  const handleViewMore = () => {
+    setDisplayedSongs(displayedSongs + 3);
+  };
+
   return (
     <div className="third_section">
       <div className="container">
         <div className="hero">
-          <img src={img} />
+          <img src={img} alt="" />
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
             efficitur, nibh ut luctus faucibus, est arcu fermentum enim, eu
@@ -24,29 +38,18 @@ const Home = () => {
           </p>
         </div>
         <div className="articles">
-          <Article
-            title="123"
-            description="to help maximise your health and happiness..."
-            img={img}
-          />
-          <Article
-            title="321"
-            description="From tofu to teahouses, here’s our guide to Kyoto’s best restaurants to visit..."
-            img={img}
-          />
-          <Article
-            title="231"
-            description="It’s remote and challenging to get, but braving the jungle and exploring these ruins without the..."
-            img={img}
-          />
-          <Article
-            title="132"
-            description="If learning to surf has in on your to-do list for a while, the good news is: it’s never too late..."
-            img={img}
-          />
+          {Array.isArray(songs) ? (
+            songs
+              .slice(0, displayedSongs)
+              .map((item) => <Article key={item.id} song={item} />)
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <Button name="View more" />
+          <button className="view_more__home" onClick={handleViewMore}>
+            View more
+          </button>
         </div>
       </div>
     </div>

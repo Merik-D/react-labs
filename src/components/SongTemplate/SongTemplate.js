@@ -1,12 +1,17 @@
 import React from "react";
-import "./SongTemplate.css"
+import "./SongTemplate.css";
+import { albums_img } from "../ImageConstants/image_constants";
 
-const Article = ({img, title, description }) => {
+const Article = ({ song }) => {
+  const albumImageKey = song.album.toLowerCase().replace(/\s+/g, "_");
+  const albumImage = albums_img[albumImageKey];
+
   return (
-    <article className="article">
-      <img src={img} alt="" className="article_img" />
-      <h3 className="article_title">{title}</h3>
-      <p className="article_description">{description}</p>
+    <article className="article" key={song.id}>
+      <p>Title: {song.title}</p>
+      <img src={albumImage} alt="" className="article_img" />
+      <p>Duration: {song.duration}</p>
+      <p>Author: {song.author}</p>
     </article>
   );
 };
