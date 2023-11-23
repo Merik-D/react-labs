@@ -3,17 +3,19 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import Home from "../Home/Home";
-import Catalog from "../Catalog/Catalog";
-
+import CatalogPage from "../Catalog/CatalogPage";
+import ItemPage from "../ItemPage/ItemPage";
+import CartPage from "../Cart/CartPage";
 
 const App = () => {
   return (
     <Router>
-      <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element = {<Home/>} />
-        <Route path="/catalog" element ={<Catalog />} /> 
-        <Route path="/cart" element ={<div className="cart">Its Cart page</div>} /> 
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/card/:songId" element={<ItemPage />} />
       </Routes>
       <Footer />
     </Router>
