@@ -6,6 +6,8 @@ import Home from "../Home/Home";
 import CatalogPage from "../Catalog/CatalogPage";
 import ItemPage from "../ItemPage/ItemPage";
 import CartPage from "../Cart/CartPage";
+import CheckoutPage from "../Checkout/CheckoutPage";
+import SuccessPage from "../SuccessPage/SuccessPage";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
         <Route path="/catalog" element={<CatalogPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/card/:songId" element={<ItemPage />} />
+        <Route path="/checkout" element={<CheckoutPage/>}/>
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
       <Footer />
     </Router>

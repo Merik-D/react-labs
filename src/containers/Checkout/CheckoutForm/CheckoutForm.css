@@ -1,0 +1,58 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.labelContainer label {
+  width: 120px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.errorContainer {
+  margin-top: 5px;
+}
+
+.addressContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.addressContainer label {
+  width: 120px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.addressContainer .addressFields {
+  width: 420px;
+  flex: 1;
+}
+
+.addressContainer .addressFields Field {
+  width: 420px;
+}
+
+.form_labal {
+  width: 1000px;
+  padding-right: 100px;
+}
+
+.submit {
+  width: 415px;
+}
+
+.error {
+  width: 100%;
+  color: red;
+  font-size: 0.8em;
+}

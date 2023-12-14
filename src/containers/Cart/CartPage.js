@@ -24,7 +24,11 @@ const CartPage = () => {
         <NavLink className="item_page_button" to={`/catalog`}>
           Back
         </NavLink>
-        <button className="item_page_button">Continue</button>
+        {cartItems.length > 0 && (
+          <NavLink className="item_page_button" to={`/checkout`}>
+            Continue
+          </NavLink>
+        )}
       </div>
     </div>
   );
